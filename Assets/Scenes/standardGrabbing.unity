@@ -230,7 +230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52306341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.298, y: 0.738, z: 1.067}
+  m_LocalPosition: {x: 1.055, y: 0.738, z: 0.571}
   m_LocalScale: {x: 0.726, y: 1.146354, z: 0.726}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -904,8 +904,6 @@ GameObject:
   - component: {fileID: 1743323655}
   - component: {fileID: 1743323654}
   - component: {fileID: 1743323653}
-  - component: {fileID: 1743323656}
-  - component: {fileID: 1743323657}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -1059,38 +1057,6 @@ MonoBehaviour:
   m_MoveObjectOut: 15
   m_DirectionalAnchorRotation: 1
   m_PoseProvider: {fileID: 0}
---- !u!114 &1743323656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743323651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b17ffce87896d2246bddb06545767df7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightHand: 1
-  grabTrigger: 0
-  springForce: 100
-  objectHeld: {fileID: 0}
---- !u!54 &1743323657
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743323651}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1846019577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2337977402439173494, guid: 77e844bcb9bfa224f941934378a871b1,
@@ -1545,8 +1511,6 @@ GameObject:
   - component: {fileID: 2126725380}
   - component: {fileID: 2126725379}
   - component: {fileID: 2126725378}
-  - component: {fileID: 2126725381}
-  - component: {fileID: 2126725382}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -1700,38 +1664,6 @@ MonoBehaviour:
   m_MoveObjectOut: 15
   m_DirectionalAnchorRotation: 1
   m_PoseProvider: {fileID: 0}
---- !u!114 &2126725381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2126725376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b17ffce87896d2246bddb06545767df7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightHand: 0
-  grabTrigger: 0
-  springForce: 100
-  objectHeld: {fileID: 0}
---- !u!54 &2126725382
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2126725376}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &2129547901
 GameObject:
   m_ObjectHideFlags: 0
