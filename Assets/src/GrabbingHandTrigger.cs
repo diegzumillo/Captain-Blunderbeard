@@ -33,7 +33,7 @@ public class GrabbingHandTrigger : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         // needs to be in Update because of reasons
         if(rightHand)
@@ -46,6 +46,7 @@ public class GrabbingHandTrigger : MonoBehaviour
         hand.TryGetFeatureValue(CommonUsages.gripButton, out grabTrigger);
         
         if(grabTrigger){
+            
             if(objectHeld != null){
                 //update anchor point                
                 // joint.connectedAnchor = transform.position;
@@ -76,12 +77,13 @@ public class GrabbingHandTrigger : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if(grabTrigger && objectHeld == null){
-            print(other.gameObject.name);
+            
             // Check if the other collider has a Rigidbody component
             Rigidbody otherRb = other.GetComponent<Rigidbody>();
             if (otherRb != null)
             {
                 print("grabbing an object");
+                print(other.gameObject.name);
                 // Set the objectHeld to the other Rigidbody
                 objectHeld = otherRb;
 
