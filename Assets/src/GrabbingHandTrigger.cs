@@ -7,10 +7,19 @@ using UnityEngine.XR;
 public class GrabbingHandTrigger : MonoBehaviour
 {
     
-    
+    //Possible Improvements:
+    //
+    //  Add a cutoff distance for dropping items as well as max force. If the distance between heldobject 
+    //  and this hand is bigger than 
+    //  a predetermined value, it drops the object. Feels natural, as it will happen with fast movements or heavy objects.
+    //
+    //  Apply torque to keep object at same rotation as hand. (easy hack is to add two more forces around the same point)
+    //  At the moment the player can still manipulate the rotation using his second hand naturally.
+
     public bool rightHand = false;
     public bool grabTrigger = false;
     public float springForce = 100.0f;
+    public float springDamp = 1.0f;
     InputDevice hand;
     
     private SpringJoint joint;
@@ -20,23 +29,21 @@ public class GrabbingHandTrigger : MonoBehaviour
 
     void Start()
     {
-
+        //not needed yet
     }
 
 
     void Update()
     {
-        // needs to be in Update
+        // needs to be in Update because of reasons
         if(rightHand)
             hand = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
         else
             hand = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
 
-        // left = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
-        // more https://docs.unity3d.com/ScriptReference/XR.XRNode.html
-
-        // assigns button value to out variable, if expecting Vector3 replace bool
-        hand.TryGetFeatureValue(CommonUsages.triggerButton, out grabTrigger);
+        
+        
+        hand.TryGetFeatureValue(CommonUsages.gripButton, out grabTrigger);
         
         if(grabTrigger){
             if(objectHeld != null){
@@ -45,6 +52,8 @@ public class GrabbingHandTrigger : MonoBehaviour
                 // joint.anchor = joint.transform.InverseTransformPoint(transform.position);
                 Vector3 grabbingPointWorld = objectHeld.transform.TransformPoint(grabbingPoint);
                 Vector3 force = springForce * (transform.position - grabbingPointWorld );
+                 //real spring damp would use relative velocity but this works fine here
+                force -= springDamp * objectHeld.velocity;
                 objectHeld.AddForceAtPosition(force, grabbingPointWorld);
                 
             }
@@ -73,9 +82,12 @@ public class GrabbingHandTrigger : MonoBehaviour
             if (otherRb != null)
             {
                 print("grabbing an object");
-                // Set the grabbedObject to the other Rigidbody
+                // Set the objectHeld to the other Rigidbody
                 objectHeld = otherRb;
 
+                //I left out this old code commented for comparison. Dealing with joits can be
+                //more trouble than its worth.
+                
                 // Create a new FixedJoint component on the grabbed object
                 //joint = objectHeld.gameObject.AddComponent<SpringJoint>();
 
